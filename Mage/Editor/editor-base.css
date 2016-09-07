@@ -1,0 +1,75 @@
+body{
+	background: black;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: row;
+}
+#left{
+	background: darkgreen;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+#right{
+	background: orange;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+#left-top{
+	background: #6DF;
+	flex: 1;
+	transition: flex 1s ease-out;
+}
+#left-top:hover{
+	flex-grow: 100;
+}
+.vertical-expand{
+	flex: 10;
+}
+#left-bottom{
+	background: #89A;
+	flex: 10;
+}
+#right-top{
+	background: #000;
+	flex: 1;
+}
+#right-bottom{
+	background: #356;
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+}
+.roll{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	border: 1px dashed rgba(255,255,255,.5);
+}
+.roll-view{
+	flex: 10;
+	display: flex;
+	flex-direction: row;
+	overflow-y:  scroll;
+}
+.add-remove-buttons{
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-content: space-around;
+}
+.add-remove-buttons div{
+	margin: 0px 5px;
+	background: rgba(255,255,255,.5);
+	flex: 1;
+	display: flex;
+	justify-content: space-around;
+	align-content: space-around;
+	transition: background .3s;
+}
+.add-remove-buttons div:hover{
+	background: rgba(255,255,255,.75);
+}

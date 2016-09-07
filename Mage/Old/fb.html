@@ -1,0 +1,334 @@
+<html>
+
+
+<body>
+<div id="wrapper">
+	
+	<div id="left-col">
+		<div id="nav-box">
+			<img id="logo"></img> FireBreather
+			<div class="tab nav-tab">Build</div>
+			<div class="tab nav-tab">Play</div>
+			<div class="tab nav-tab">Settings</div>
+			<div class="tab nav-tab">File</div>
+		</div>
+		<div id="top-wide">
+			<div id="view-box"></div>
+			<div id="play-box"></div>
+			<div id="settings-box"></div>
+			<div id="file-box">
+				<h4>Project Name : </h4> <input type="text"></input><br>
+				<h4>Project Folder : </h4> <input type="text"></input>
+			</div>
+		</div>
+		<div id="tabs-box" class="wide-box">
+			<div class="tab tool-tab">Classes</div>
+			<div class="tab tool-tab">Scenes</div>
+			<div class="tab tool-tab">Scripts</div>
+		</div>
+		<div id="bottom-wide" class="wide-box">
+			<div id="tool-box">
+				<button id="add-class">New Class</button>
+				<div id="new-class">
+					<button id="add-class">New Property</button>
+					<button id="add-class">New Method</button>
+					<br>
+					<h3>Class Name</h3> :  <input type="text"></input><br>
+					<h3>Sprite</h3> :  <input type="text"></input>
+
+				</div>
+			</div>
+			<div id="scenes-box"></div>
+			<div id="scripts-box"></div>
+		</div>
+	</div>
+	<div id="right-col">
+		<div id="inspector-box"></div>
+		<div id="memory-bank"></div>
+	</div>
+</div>
+</body>
+
+
+
+<foot>
+<!--Library allowing for file saving via 'saveAs()' method-->
+<!--<script src="FileSaver.js"></script>-->
+
+<!--Library dependency for FileSaver.js-->
+<!--<script src="jquery-3.0.0.min.js"></script>-->
+
+<!--Library dependency for Raphael.js-->
+<!--<script src="raphael.min.js"></script>-->
+
+<!--Files Scripts-->
+
+<!--
+<script>
+	var parseXml;
+	if (typeof window.DOMParser != "undefined") {
+	    parseXml = function(xmlStr) {
+	        return ( new window.DOMParser() ).parseFromString(xmlStr, "text/xml");
+	    };
+	} else if (typeof window.ActiveXObject != "undefined" &&
+	       new window.ActiveXObject("Microsoft.XMLDOM")) {
+	    parseXml = function(xmlStr) {
+	        var xmlDoc = new window.ActiveXObject("Microsoft.XMLDOM");
+	        xmlDoc.async = "false";
+	        xmlDoc.loadXML(xmlStr);
+	        return xmlDoc;
+	    };
+	} else {
+	    throw new Error("No XML parser found");
+	}
+
+	var classes = parseXml("<classes></classes>");
+	var scenes = parseXml("<scenes></scenes>");
+	var objects = parseXml("<objects></objects>");
+	var scripts = parseXml("<scripts></scripts>");
+
+	//alert(classes.documentElement.nodeName);
+
+
+	//var blob = new Blob(["Hello world!"], {type: "text/plain;charset=utf-8"});
+	//saveAs(blob, "hello world.txt");
+</script>
+-->
+
+<!--Button Scripts-->
+<script>
+	var tooltabs = document.getElementsByClassName('tool-tab');
+	tooltabs[0].addEventListener("click", function(){
+		document.getElementById('tool-box').style.display = 'block';
+		document.getElementById('scenes-box').style.display = 'none';
+		document.getElementById('scripts-box').style.display = 'none';
+	});
+	tooltabs[1].addEventListener("click", function(){
+		document.getElementById('tool-box').style.display = 'none';
+		document.getElementById('scenes-box').style.display = 'block';
+		document.getElementById('scripts-box').style.display = 'none';
+	});
+	tooltabs[2].addEventListener("click", function(){
+		document.getElementById('tool-box').style.display = 'none';
+		document.getElementById('scenes-box').style.display = 'none';
+		document.getElementById('scripts-box').style.display = 'block';
+	});
+	var navtabs = document.getElementsByClassName('nav-tab');
+	navtabs[0].addEventListener("click", function(){
+		document.getElementById('view-box').style.display = 'block';
+		document.getElementById('play-box').style.display = 'none';
+		document.getElementById('settings-box').style.display = 'none';
+		document.getElementById('file-box').style.display = 'none';
+	});
+	navtabs[1].addEventListener("click", function(){
+		document.getElementById('view-box').style.display = 'none';
+		document.getElementById('play-box').style.display = 'block';
+		document.getElementById('settings-box').style.display = 'none';
+		document.getElementById('file-box').style.display = 'none';
+	});
+	navtabs[2].addEventListener("click", function(){
+		document.getElementById('view-box').style.display = 'none';
+		document.getElementById('play-box').style.display = 'none';
+		document.getElementById('settings-box').style.display = 'block';
+		document.getElementById('file-box').style.display = 'none';
+	});
+	navtabs[3].addEventListener("click", function(){
+		document.getElementById('view-box').style.display = 'none';
+		document.getElementById('play-box').style.display = 'none';
+		document.getElementById('settings-box').style.display = 'none';
+		document.getElementById('file-box').style.display = 'block';
+	});
+</script>
+
+<!--Vector Art Test Scripts-->
+<!--<script>
+var paper = Raphael(0,0,480,360);
+paper.attr("fill", "#f00");
+//document.getElementById('play-box').addChild(paper);
+var circle = paper.circle(50, 40, 10);
+circle.attr("fill", "#f00");
+circle.attr("stroke", "#fff");
+</script>-->
+
+<!--GUI Layout-->
+<style>
+	html
+	{
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+	body
+	{
+		width: 98%;
+		height: 95%;
+		vertical-align: top;
+		background: #000;
+		padding-top: 2%;
+	}
+	#left-col
+	{
+		width: 45%;
+		height: 90%;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	#right-col
+	{
+		width: 45%;
+		height: 90%;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	#view-box
+	{
+		width: 100%;
+		height: 45%;
+		border: 1px solid black;
+		background: #111;
+	}
+	#tool-box
+	{
+		width: 100%;
+		height: 45%;
+		border: 1px solid black;
+		background: #999;
+		text-align: left;
+	}
+	#inspector-box
+	{
+		width: 49%;
+		height: 100%;
+		border: 1px solid black;
+		display: inline-block;
+		background: #666;
+	}
+	#memory-bank
+	{
+		width: 49%;
+		height: 100%;
+		border: 1px solid black;
+		display: inline-block;
+		background: #222;
+	}
+	#nav-box
+	{
+		width: 100%;
+		height: 5%;
+		border: 1px solid black;
+		background: #888;
+		text-align: left;
+		color: white;
+		font-family: sans-serif;
+		font-size: 16pt;
+		font-weight: lighter;
+		vertical-align: middle;
+	}
+	#tabs-box
+	{
+		width: 100%;
+		height: 5%;
+		border: 1px solid black;
+		background: #888;
+		text-align: left;
+		color: white;
+		font-family: sans-serif;
+		font-size: 16pt;
+		font-weight: lighter;
+		vertical-align: middle;
+	}
+	#logo
+	{
+		width: auto;
+		height: 100%;
+		vertical-align: middle;
+	}
+	.tab
+	{
+		width: 150px;
+		height: 100%;
+		color: white;
+		border: 1px solid white;
+		display: inline-block;
+		text-align: center;
+		vertical-align: middle;
+		transition: background .3s ease-out,
+					color .3s ease-out;
+	}
+	.tab:hover
+	{
+		background: #CCC;
+		color: black;
+	}
+	#scripts-box
+	{
+		display: none;
+		background: #222;
+		width: 100%;
+		height: 45%;
+	}
+	#scenes-box
+	{
+		display: none;
+		background: #333;
+		width: 100%;
+		height: 45%;
+		overflow-y: auto;
+	}
+	#play-box
+	{
+		display: none;
+		width: 100%;
+		height: 45%;
+		border: 1px solid black;
+		background: #000;
+	}
+	#settings-box
+	{
+		display: none;
+		width: 100%;
+		height: 45%;
+		border: 1px solid black;
+		background: #444;
+	}
+	#file-box
+	{
+		display: none;
+		width: 100%;
+		height: 45%;
+		border: 1px solid black;
+		background: #666;
+		text-align: left;
+	}
+	#file-box h4, #file-box input
+	{
+		display: inline-block;
+	}
+	.wide-box
+	{
+		width: 100%;
+		height: 100%;
+	}
+	#new-class
+	{
+		background: #CCC;
+		width: 500px;
+		padding: 10px;
+		position: relative;
+		top: 25px;
+	}
+	#new-class h3, #new-class input
+	{
+		display: inline-block;
+	}
+</style>
+
+<!--GUI Theme-->
+<style>
+
+</style>
+
+</foot>
+
+
+</html>
